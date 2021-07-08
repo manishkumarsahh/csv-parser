@@ -1,0 +1,29 @@
+body{
+    background-color: CCE5F4;
+}
+#profileimg{
+    width: 600px;
+    margin-left: 10%;
+    margin-top: 10%;
+}
+#pname{
+    font-size: 400%;
+    margin-left: 15%;
+}
+#pmail{
+    margin-top: 10%;
+    font-size: 150%;
+    margin-left: 15%;
+}
+
+
+#alef{
+
+    float: left;
+}
+
+#aright{
+    margin-top: 10%;
+    margin-right: 5%;
+    float: right;
+}

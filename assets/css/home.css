@@ -1,0 +1,76 @@
+
+#posts-list-container{
+    display: flex;
+  justify-content: center;
+}
+#new-post-form{
+    display: flex;
+  justify-content: center;  
+
+}
+#titleofhmepage{
+    display: flex;
+  justify-content: center;
+  
+
+}
+#feed-post{
+    width: 40%;
+    float: left;
+    margin-left: 10%;
+}
+
+#user-friends{
+    width:20% ;
+   
+    float: right;
+    margin-right: 7%;
+}
+#postlayout{
+    margin-top: 20%;
+    background-color: #B3ED68;
+    height: 100px;
+    width: 600px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(131, 196, 226);
+    border-radius: 2px;
+}
+
+#commentlayout{
+    background-color: #EDCC68;
+    height: 40px;
+    width: fit-content;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(131, 196, 226);
+    border-radius: 2px;
+    
+}
+#deletebtn{
+    float: right;
+    
+}
+#signuplay{
+    width: 60%;
+    margin-left: 20%;
+}
+#field{
+    width: 50%;
+    height: 30px;
+    border-radius: 3px;
+    border-color: salmon;
+    border-style: solid;
+}
+
+#field1{
+    width: 30%;
+    height: 40px;
+    border-radius: 3px;
+    border-color: salmon;
+    margin-left: 20%;
+    border-style: solid;
+    background-color: salmon;
+    font-size: 200%;
+    text-align: center;
+}

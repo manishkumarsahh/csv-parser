@@ -1,0 +1,18 @@
+#headers{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    background: #e76f51;
+    color: white;
+    box-shadow: 1px 1px 1px 1px lightgrey; 
+}
+#header1{
+    display: flex;
+    float: left;
+    
+}
+#header2{
+    
+    display: flex;
+    float: right;
+}
