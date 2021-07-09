@@ -1,30 +1,32 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
-const app = express();
-const port =process.env.PORT || 8000;
-const db = require('./config/mongoose');
+const path = require('path');
+const port = process.env.PORT ||  8000;
 
+
+
+app.set('view engine','ejs');
+app.set('views',path.join(__dirname,'views'));
 app.use(express.urlencoded());
+app.use(express.static('assets'));
 
-app.use(cookieParser());
-
-app.use(express.static('./assets'));
-
-// extract style and scripts from sub pages into the layout
-
-
-// use express router
-app.use('/', require('./routes'));
-
-// set up the view engine
-app.set('view engine', 'ejs');
-app.set('views', './views');
+app.get('/',function(req,res){
+    return res.render('home',{
+        title:"Contact List"
+    });
+});
 
 
-app.listen(port, function(err){
-    if (err){
-        console.log(`Error in running the server: ${err}`);
+
+
+
+
+
+
+app.listen(port,function(err){
+    if(err){
+        console.log('error in running server ',err  );
     }
+    console.log('yup my server is running on port',port);
 
-    console.log(`Server is running on port: ${port}`);
+
 });
