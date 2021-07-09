@@ -46,6 +46,28 @@ app.get('/create',function(req,res){
 
 
 
+app.post('/create-contact', function(req, res){
+
+    
+
+    Contact.create({
+        name: req.body.name,
+        phone: req.body.phone
+    }, function(err, newContact){
+        if(err){
+            console.log("Error in creating a contact.");
+            return;
+        }
+        console.log('New Contact ==>', newContact);
+        return res.redirect('back');
+    });
+
+   
+
+});
+
+
+
 
 
 
