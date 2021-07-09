@@ -9,14 +9,31 @@ app.set('views',path.join(__dirname,'views'));
 app.use(express.urlencoded());
 app.use(express.static('assets'));
 
+
+var contactList=[
+    {
+        name:"Manish",
+        phone:"1111"
+    },
+    {
+        name:"rohan",
+        phone:"2326"
+    },
+    {
+        name:"Raj",
+        phone:"4546"
+    }
+]
+
+
+
 app.get('/',function(req,res){
+    
     return res.render('home',{
-        title:"Contact List"
+        title:"contacts list",
+        contact_List: contactList
     });
 });
-
-
-
 
 
 
