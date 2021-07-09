@@ -35,6 +35,12 @@ app.get('/',function(req,res){
     });
 });
 
+app.get('/create',function(req,res){
+    return res.render('createContact');
+});
+
+
+
 
 
 
