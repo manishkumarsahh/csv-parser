@@ -32,12 +32,24 @@ var contactList=[
 
 
 
-app.get('/',function(req,res){
-    
-    return res.render('home',{
-        title:"contacts list",
-        contact_List: contactList
+app.get('/', function(req, res){
+    // console.log(__dirname);
+
+    Contact.find({}, function(err, contacts){
+        if(err){
+            console.log("Error in fetching contacts from database.");
+            return;
+        }
+        return res.render('home', { 
+            title: "My Contact List",
+            contact_list: contacts
+        });
     });
+
+    // return res.render('home', { 
+    //     title: "My Contact List",
+    //     contact_list: contactList
+    // });
 });
 
 app.get('/create',function(req,res){
