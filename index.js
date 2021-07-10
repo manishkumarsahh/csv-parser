@@ -11,7 +11,7 @@ const Contact = require('./models/contact');
 
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:true}));
 app.use(express.static('assets'));
 
      
