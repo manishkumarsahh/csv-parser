@@ -5,32 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=locals.title %></title>
+    <link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-    <h1>Contact List...</h1>
-    <div>
+    <h1 id="page-heading">Contact List...</h1>
+    <div id="contact-list-container">
         <ul>
 
             <% for(let i of contact_list){ %>
-                <li>
-                    <p><%=i.name  %></p>
-                    <p><%=i.phone  %></p>
-                </li>
+                <div id="onec">
+                    <li class="contact">
+                        <p id="pleft"><%=i.name  %></p>
+                    </li>
+                    <li class="contact">
+                        <p id="pright"><%=i.phone  %></p>
+                    </li>
+                </div>
+               
             <%}%>
 
         </ul>
     </div>
-    <br>
-    <div>
+<div>
 
-        <form action="/create-contact" method="post">
-            <input type="text" name="name" id="" placeholder="enter name" required>
-            <input type="number" name="phone" id="" placeholder="enter phone number" required>
-            <button type="submit">ADD CONTACT</button>
-        </form>
+    <form action="/create-contact"  id="new-contact-form" method="post">
+        <input type="text" name="name" id="" placeholder="enter name" required>
+        <input type="number" name="phone" id="" placeholder="enter phone number" required>
+        <button type="submit">ADD CONTACT</button>
+    </form>
 
 
-    </div>
+</div>
    
 
 
