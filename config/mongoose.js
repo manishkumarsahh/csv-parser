@@ -5,7 +5,7 @@
 
 //changes from here
 const mongoose = require('mongoose');
-const db = process.env.db || 'mongodb+srv://manish:kumar@cluster0.5vaq2.mongodb.net/contactlist?retryWrites=true&w=majority';
+const db = process.env.MONGODB_URI || 'mongodb+srv://manish:kumar@cluster0.5vaq2.mongodb.net/contactlist?retryWrites=true&w=majority';
 mongoose.connect(db, {
     useNewUrlParser: true,
     useCreateIndex:true,
