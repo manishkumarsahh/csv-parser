@@ -10,7 +10,7 @@ h1{
 }
 
 #contact-list-container{
-    width: 30%;
+    width: 50%;
     margin: auto;
 }
 
@@ -22,7 +22,7 @@ h1{
 .contact{
     padding: 3px 10px;
     border: 1px solid white;
-    background-color: #d6ec73;
+    background-color: #eb8242;
     color: white;
     box-shadow: 1px 1px 1px 1px #da2d2d;
     display: flex;
