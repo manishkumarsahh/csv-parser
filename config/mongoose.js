@@ -1,11 +1,8 @@
-// const mongoose = require('mongoose');
-// mongoose.connect('mongodb+srv://manish:kumar@cluster0.5vaq2.mongodb.net/contactlist?retryWrites=true&w=majority');
-// const db= mongoose.connection;
+ 
 
-
-//changes from here
+//establishing connection with mongoose
 const mongoose = require('mongoose');
-const db = process.env.MONGODB_URI || 'mongodb+srv://manish:kumar@cluster0.5vaq2.mongodb.net/contactlist?retryWrites=true&w=majority';
+const db = process.env.MONGODB_URI || 'mongodb+srv://manish:fleo123@cluster0.ebci7.mongodb.net/assignmentnode?retryWrites=true&w=majority';
 mongoose.connect(db, {
     useNewUrlParser: true,
     useCreateIndex:true,
@@ -18,8 +15,4 @@ mongoose.connect(db, {
 
 
 
-
-// db.on('error',console.error.bind(console,'error connecting to db'));
-// db.once('open',function(){
-//     console.log('successfully connected to database');
-// });
+ 

@@ -1,82 +1,96 @@
 const express = require('express');
 const path = require('path');
+const { nextTick } = require('process');
 const port = process.env.PORT ||  8000;
 
 const app = express();
 
 const db=require('./config/mongoose');
-const Contact = require('./models/contact');
+
+const Books = require('./models/books');
 
 
-
-app.set('view engine','ejs');
-app.set('views',path.join(__dirname,'views'));
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('assets'));
 
-     
-var contactList=[
-    {
-        name:"Manish",
-        phone:"1111"
-    },
-    {
-        name:"rohan",
-        phone:"2326"
-    },
-    {
-        name:"Raj",
-        phone:"4546"
-    }
-]
 
+//Add books to the database
+app.post('/addBooks', async function(req,res){
 
-
-app.get('/', function(req, res){
-    // console.log(__dirname);
-
-    Contact.find({}, function(err, contacts){
-        if(err){
-            console.log("Error in fetching contacts from database.");
-            return;
-        }
-        return res.render('home', { 
-            title: "My Contact List",
-            contact_list: contacts
+    try{
+        let bookLists = await Books.create({
+            bookName:req.body.boonName,
+            bookAuthor:req.body.bookAuthor,
         });
-    });
-
-   
-});
-
-app.get('/create',function(req,res){
-    return res.render('createContact');
-});
-
-
-
-app.post('/create-contact', function(req, res){
+        res.status(200).send(bookLists);
+    }catch(err){
+        res.status(400).send('error');
+         next();
+    }
 
     
+});
 
-    Contact.create({
-        name: req.body.name,
-        phone: req.body.phone
-    }, function(err, newContact){
-        if(err){
-            console.log("Error in creating a contact.");
-            return;
-        }
-        console.log('New Contact ==>', newContact);
-        return res.redirect('back');
-    });
+      
+   //get all books
+app.get('/getAllBooks', async function(req,res){
 
-   
+    try{
+        let bookLists = await Books.find({});
+        res.status(200).send(bookLists);
+    }catch(err){
+        res.status(400).send('error');
+        next();
+    }
 
+    
+});
+
+      //get books by id
+app.get('/getBookById', async function(req,res){
+
+    try{
+        let bookLists = await Books.find({_id:req.body.id});
+        res.status(200).send(bookLists);
+    }catch(err){
+        res.status(400).send('error');
+        next();
+    }
+
+    
+});
+
+      //delete books by id
+app.delete('/deleteById', async function(req,res){
+
+    try{
+        let bookLists = await Books.findOneAndDelete({_id:req.body.id});
+        res.status(200).send('deleted succesfully');
+    }catch(err){
+        res.status(400).send('error');
+        next();
+    }
+
+    
 });
 
 
+//update books details by ids
+app.put('/updateBookById', async function(req,res){
 
+    try{
+        let bookLists = await Books.findOneAndUpdate({_id:req.body.id},{
+            bookName:req.body.boonName,
+            bookAuthor:req.body.bookAuthor
+        });
+        res.status(200).send('updated');
+    }catch(err){
+        res.status(400).send('error');
+         next();
+    }
+
+    
+});
 
 
 
